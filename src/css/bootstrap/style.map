@@ -1,0 +1,26 @@
+{
+	"version": 3,
+	"file": "style.css",
+	"sources": [
+		"../scss/style.scss",
+		"../scss/_mixins.scss",
+		"../scss/_responsive.scss",
+		"../scss/_fonts.scss",
+		"../scss/_main.scss",
+		"../scss/_buttons.scss",
+		"../scss/_inputs.scss",
+		"../scss/_header.scss"
+	],
+	"sourcesContent": [
+		"@import 'mixins.scss';\r\n@import 'responsive.scss';\r\n@import 'fonts.scss';\r\n@import 'main.scss';\r\n@import 'buttons.scss';\r\n@import 'inputs.scss';\r\n\r\n/* Section */\r\n\r\n@import 'header.scss';",
+		"// opacity\r\n@mixin opacity($opacity) {\r\n    opacity: $opacity;\r\n    $opacity-ie: $opacity * 100;\r\n    filter: alpha(opacity=$opacity-ie); //IE8\r\n  }\r\n// transition\r\n@mixin transition($args...) {\r\n    -webkit-transition: $args;\r\n    -moz-transition: $args;\r\n    -ms-transition: $args;\r\n    -o-transition: $args;\r\n    transition: $args;\r\n}// transition\r\n@mixin border-radius($man) {\r\n  -webkit-border-radius: $man;\r\n  -moz-border-radius: $man;\r\n  border-radius: $man;\r\n}\r\n\r\n\r\n// Flexbox display\r\n@mixin flexbox() {\r\n  display: -webkit-box;\r\n  display: -moz-box;\r\n  display: -ms-flexbox;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n}\r\n\r\n// justify-content\r\n@mixin justify-content($justify) {\r\n  -webkit-justify-content: $justify;\r\n     -moz-justify-content: $justify;\r\n      -ms-justify-content: $justify;\r\n          justify-content: $justify;\r\n            -ms-flex-pack: $justify;\r\n}\r\n\r\n// align-content\r\n@mixin align-content($align) {\r\n  -webkit-align-content: $align;\r\n     -moz-align-content: $align;\r\n      -ms-align-content: $align;\r\n          align-content: $align;\r\n}\r\n\r\n// Cross-axis Alignment\r\n@mixin align-items($align) {\r\n  -webkit-align-items: $align;\r\n     -moz-align-items: $align;\r\n      -ms-align-items: $align;\r\n          align-items: $align;\r\n}\r\n\r\n\r\n// transform\r\n// Browser Prefixes\r\n@mixin transform($transforms) {\r\n\t-webkit-transform: $transforms;\r\n\t-moz-transform: $transforms;\r\n\t-ms-transform: $transforms;\r\n\ttransform: $transforms;\r\n}\r\n// Translate\r\n@mixin translate ($x, $y) {\r\n\t@include transform(translate($x, $y));\r\n}\r\n// TranslateY\r\n@mixin translateY ($y) {\r\n  @include transform(translateY($y));\r\n  }\r\n// TranslateY\r\n@mixin translateX ($x) {\r\n  @include transform(translateX($x));\r\n  }\r\n\r\n\r\n// Box shadows\r\n@mixin box-shadow($shadow...) {\r\n  -webkit-box-shadow: $shadow;\r\n     -moz-box-shadow: $shadow;       \r\n          box-shadow: $shadow;\r\n}\r\n\r\n\r\n\r\n@mixin background($imgpath,$position: center,$size: cover,$repeat: no-repeat) {\r\n  background: {\r\n      image: url($imgpath);\r\n      position: $position;\r\n      repeat: $repeat;\r\n      size: $size;\r\n  }\r\n}\r\n@mixin transform_time($total_time) {\r\n  -webkit-transition: $total_time;\r\n  transition: $total_time;\r\n}\r\n@mixin placeholder {\r\n&.placeholder {\r\n  @content;\r\n}\r\n&:-moz-placeholder {\r\n  @content;\r\n}\r\n&::-moz-placeholder {\r\n  @content;\r\n}\r\n&::-webkit-input-placeholder {\r\n  @content;\r\n}\r\n}\r\n@mixin transition($args: all 0.6s ease 0s) {\r\n-webkit-transition: $args;\r\n-moz-transition: $args;\r\n-o-transition: $args;\r\ntransition: $args;\r\n}\r\n\r\n@mixin keyframes ($animation-name) {\r\n@-webkit-keyframes #{$animation-name} {\r\n  @content;\r\n}\r\n@-moz-keyframes #{$animation-name} {\r\n  @content;\r\n}\r\n@-o-keyframes #{$animation-name} {\r\n  @content;\r\n}\r\n@keyframes #{$animation-name} {\r\n  @content;\r\n}\r\n}",
+		"$large_device_2:'(min-width: 1501px) and (max-width: 1700px)';\r\n/* Normal desktop :1200px. */\r\n$large_device:'(min-width: 1200px) and (max-width: 1500px)';\r\n\r\n/* Normal desktop :992px. */\r\n$mid_device:'(min-width: 992px) and (max-width: 1200px)';\r\n\r\n/* Tablet desktop :768px. */\r\n$tablet_device:'(min-width: 768px) and (max-width: 991px)';\r\n\r\n/* small mobile :320px. */\r\n$mobile_device:'(max-width: 767px)';\r\n\r\n/* Large Mobile :480px. */\r\n$large_mobile:'only screen and (min-width: 480px) and (max-width: 767px)';\r\n\r\n",
+		"",
+		"*{\r\n\tmargin: 0;\r\n\tpadding: 0;\r\n}\r\n",
+		"",
+		"",
+		""
+	],
+	"names": [],
+	"mappings": "AECA,6BAA6B;AAG7B,4BAA4B;AAG5B,4BAA4B;AAG5B,0BAA0B;AAG1B,0BAA0B;;AEb1B,AAAA,CAAC,CAAA;EACA,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;CACV;;AJID,aAAa"
+}

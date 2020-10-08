@@ -1,97 +1,67 @@
-import React, {useEffect} from 'react';
- function Header (props) {
-     return (
-        <div class="row header">
-      
- 
-        <div class="span5 logo">
-        	<a href="index.htm"><img src="img/piccolo-logo.png" alt="" /></a>
-            <h5>Big Things... Small Packages</h5>
-        </div>
-        
-    
-        <div class="span7 navigation">
-            <div class="navbar hidden-phone">
-            
-            <ul class="nav">
-            <li class="dropdown active">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="index.htm">Home <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="index.htm">Full Page</a></li>
-                    <li><a href="index-gallery.htm">Gallery Only</a></li>
-                    <li><a href="index-slider.htm">Slider Only</a></li>
-                </ul>
-            </li>
-           <li><a href="features.htm">Features</a></li>
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="page-full-width.htm">Pages <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="page-full-width.htm">Full Width</a></li>
-                    <li><a href="page-right-sidebar.htm">Right Sidebar</a></li>
-                    <li><a href="page-left-sidebar.htm">Left Sidebar</a></li>
-                    <li><a href="page-double-sidebar.htm">Double Sidebar</a></li>
-                </ul>
-            </li>
-             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="gallery-4col.htm">Gallery <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="gallery-3col.htm">Gallery 3 Column</a></li>
-                    <li><a href="gallery-4col.htm">Gallery 4 Column</a></li>
-                    <li><a href="gallery-6col.htm">Gallery 6 Column</a></li>
-                    <li><a href="gallery-4col-circle.htm">Gallery 4 Round</a></li>
-                    <li><a href="gallery-single.htm">Gallery Single</a></li>
-                </ul>
-             </li>
-             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="blog-style1.htm">Blog <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="blog-style1.htm">Blog Style 1</a></li>
-                    <li><a href="blog-style2.htm">Blog Style 2</a></li>
-                    <li><a href="blog-style3.htm">Blog Style 3</a></li>
-                    <li><a href="blog-style4.htm">Blog Style 4</a></li>
-                    <li><a href="blog-single.htm">Blog Single</a></li>
-                </ul>
-             </li>
-             <li><a href="page-contact.htm">Contact</a></li>
-            </ul>
-           
+import React, { useState, useEffect } from 'react';
+
+
+function Header(props) {
+    return (
+        <div className="header">
+
+            <div className="row d-flex justify-content-between">
+                <h1 className="header__title">Библиотека знаний</h1>
+                <div className="row">
+                    <div className="dropdown">
+                        <button className="btn btn-secondary dropdown-toggle header__btn"
+                            type="button" id="dropdownMenu1" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Фронтенд
+        </button>
+                        <div className="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <a className="dropdown-item" href="#!">HTML</a>
+                            <a className="dropdown-item" href="#!">JavaScript</a>
+                            <a className="dropdown-item" href="#!">Фреймворки</a>
+                            <a className="dropdown-item" href="#!">Препроцессоры</a>
+                        </div>
+                    </div>
+                    <div className="dropdown">
+                        <button className="btn btn-secondary dropdown-toggle header__btn"
+                            type="button" id="dropdownMenu1" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Бэкенд
+        </button>
+                        <div className="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <a className="dropdown-item" href="#!">Python</a>
+                            <a className="dropdown-item" href="#!">SQL</a>
+                            <a className="dropdown-item" href="#!">Flask</a>
+                        </div>
+                    </div>
+                    <div className="dropdown">
+                        <button className="btn btn-secondary dropdown-toggle header__btn"
+                            type="button" id="dropdownMenu1" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Другое
+        </button>
+                        <div className="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <a className="dropdown-item" href="#!">Git</a>
+                            <a className="dropdown-item" href="#!">NodeJS</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <form action="#" id="mobile-nav" class="visible-phone">
-                <div class="mobile-nav-select">
-                <select onchange="window.open(this.options[this.selectedIndex].value,'_top')">
-                    <option value="">Navigate...</option>
-                    <option value="index.htm">Home</option>
-                        <option value="index.htm">- Full Page</option>
-                        <option value="index-gallery.htm">- Gallery Only</option>
-                        <option value="index-slider.htm">- Slider Only</option>
-                    <option value="features.htm">Features</option>
-                    <option value="page-full-width.htm">Pages</option>
-                        <option value="page-full-width.htm">- Full Width</option>
-                        <option value="page-right-sidebar.htm">- Right Sidebar</option>
-                        <option value="page-left-sidebar.htm">- Left Sidebar</option>
-                        <option value="page-double-sidebar.htm">- Double Sidebar</option>
-                    <option value="gallery-4col.htm">Gallery</option>
-                        <option value="gallery-3col.htm">- 3 Column</option>
-                        <option value="gallery-4col.htm">- 4 Column</option>
-                        <option value="gallery-6col.htm">- 6 Column</option>
-                        <option value="gallery-4col-circle.htm">- Gallery 4 Col Round</option>
-                        <option value="gallery-single.htm">- Gallery Single</option>
-                    <option value="blog-style1.htm">Blog</option>
-                        <option value="blog-style1.htm">- Blog Style 1</option>
-                        <option value="blog-style2.htm">- Blog Style 2</option>
-                        <option value="blog-style3.htm">- Blog Style 3</option>
-                        <option value="blog-style4.htm">- Blog Style 4</option>
-                        <option value="blog-single.htm">- Blog Single</option>
-                    <option value="page-contact.htm">Contact</option>
-                </select>
-                </div>
-                </form>
+            <div className="jumbotron">
+                <h2 className="display-4">О чем эта библиотека</h2>
+                <p className="lead">Это просто описать что за сайт, для чего он сделан, как им пользоваться.</p>
+                <hr className="my-4" />
+                <p>тут можно что то еще дописать. По кнопке можно вывести например модалку,
+                    с описанием кто делал, как делал ну и т.д
+                </p>
+                <p className="lead">
+                    <a className="btn btn-primary btn-lg" href="#" role="button">Узнать больше</a> 
+                    
+                </p>
+            </div>
 
         </div>
-        
-      </div>
-     )
- }
+    )
+}
 
- export default Header;
+export default Header;
