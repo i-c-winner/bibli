@@ -4,6 +4,7 @@ import Card from './main/Card';
 
 import './App.css';
 import * as cards from '../constans/constans';
+import Corusel from "./corusel/Corusel";
 
 class App extends Component {
     render() {
@@ -11,17 +12,18 @@ class App extends Component {
             <div className="home">
                 <div className="container">
                     <Header />
+                    
+                     <Corusel />
                     {
-                       Object.keys(cards.list).map(function(element){
+                        Object.keys(cards.list).map(function (element) {
                             return (
-                               
-                              <Card type={element} key={element} />  
+
+                                <Card type={element} key={element} />
                             )
                         })
                     }
-               
-                   
                 </div>
+               
             </div>
         );
     }
