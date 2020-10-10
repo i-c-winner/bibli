@@ -15,6 +15,11 @@ const { Meta } = Card;
 
 function Main(props) {
 
+
+
+    fetch('https://coralboat.online/v1/data')
+  .then(response => response.json())
+  .then(commits => console.log(commits))
     return (
         <div className="main">
             { Object.keys(list).map(function (element) {
@@ -24,7 +29,7 @@ function Main(props) {
                         <div className="main__cards">
                             {list[element].map(function (elem, i) {                              
                                 return (<>
-                                     {i<5 ?
+                                     {i<1000 ?
                                     <Card className="main__card"
                                     key={elem}
                                         style={{ width: 200 }}
@@ -33,16 +38,14 @@ function Main(props) {
                                     >
                                        
                                         <Meta key={elem} className="card__title" title={list[element][i][0].title} description="www.instagram.com" />
-                                        {/* <p className="card__title">{list[element][i][0].title} </p>
-<p className="card__sub-title">{list[element][i][2].link} </p> */}
-                                       
-                            
-                                    </Card>:<>{console.log('ok')}</> }</>
-                                )
+                                 </Card>:<>{console.log('ok')}</> }</>
+                                         )
+                                    }
+                                 )
                             }
-                            )
-                            }
+                        
                         </div>
+                            <Button className="main__butoon" type="primary" danger>Больше &#8230;</Button>
                     </div>
                 )
             })}

@@ -6,20 +6,20 @@ function HeaderLogin (props){
     return (
   <div className="header__login">
       {state ?
-      <Button type="primary" danger>
+      <Button className="header__login-link" type="primary" danger>
      Выход
     </Button>
     :
-     <Button type="primary" danger>
+     <Button className="header__login-link" type="primary" danger>
     Вход
    </Button> 
     }   
     {state ?
-      <Button type="primary" danger>
+      <Button className="header__login-link" type="primary" danger>
     Личный кабинет
     </Button>
     :
-     <Button type="primary" danger>
+     <Button className="header__login-link"  type="primary" danger>
     Регистрация
    </Button> 
     }       

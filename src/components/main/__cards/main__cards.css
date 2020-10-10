@@ -1,6 +1,7 @@
 .main__cards {
     display: flex;
-    justify-content: space-around;
+    justify-content: stretch;
     flex-wrap: wrap;
+
     
 }
