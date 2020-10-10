@@ -1,4 +1,20 @@
-@import url('./__btn/main__btn.css');
-@import url('./__title/main__title.css');
-@import url('./__cards/main__cards.css');
+
+@import url('./__box/main__box.css');
 @import url('./__card/main__card.css');
+@import url('./__cards/main__cards.css');
+@import url('./__item/main__item.css');
+
+.main {
+    background-color: rgba(155, 159, 216, 0.1);
+    width: 80%;
+    margin: 0 auto;
+    border-right: black solid 1px;
+    border-left: black solid 1px;
+ 
+}
+
+@media screen and (max-width: 500px) {
+    .main {
+        width: 100%;
+    }
+}
