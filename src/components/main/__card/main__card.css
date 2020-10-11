@@ -1,10 +1,9 @@
 
 .ant-card.main__card {
-  width: 200px;
-  height: 320px;
+  width: 300px;
+  height: 230px;
   overflow: hidden;
  margin: 7px;
  padding:2px;
  border: 1px double black;
-background-color: rgba(0, 0, 0, 0)
 }

@@ -50,13 +50,7 @@ function Main(props) {
                                 }
                               />
                             }
-                          >  
-                            <Meta
-                              key={elem}
-                              className="card__title"
-                              title={elem}
-                            
-                            />
+                          > <p className="card__title">{elem}</p>
                           </Card></a>
                         ):<></>} 
                             </>

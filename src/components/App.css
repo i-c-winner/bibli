@@ -1,7 +1,7 @@
 
-@import url('../css/bootstrap/bootstrap.min.css');
-@import url('../css/custom/custom.css');
+
 
 .home {
-font-family: Podkova, 'Sen Serif';    
+font-family: Podkova, 'Sen Serif'; 
+background-image: url('../images/page-bg-1.jpg');   
 }
