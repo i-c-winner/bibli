@@ -1,56 +1,76 @@
-import React from 'react';
-import Item from './__item/Item';
-import { list } from '../../constans/constans';
-import { Card } from 'antd';
-import { Typography, Space } from 'antd';
+import React, { useState, useEffect } from "react";
+import Item from "./__item/Item";
+import { list } from "../../constans/constans";
+import { Card } from "antd";
+import { Typography, Space } from "antd";
 const { Text, Link } = Typography;
 const { Title } = Typography;
-import { Button, Menu, Dropdown } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import { Button, Menu, Dropdown } from "antd";
+import { DownOutlined } from "@ant-design/icons";
 
-import '../card/card.css'
-import './main.css'
+import "../card/card.css";
+import "./main.css";
+import apiRequest from "../../utils/apiRequest";
 
 const { Meta } = Card;
 
-function Main(props) {
+function Main(props) {  
+  const [data, setData] = useState({});
+  useEffect(() => {
+    apiRequest().then((resultat) => {
+      setData(resultat);
+    });
+  }, []);
 
+  return (
+    <div className="main">
+      {Object.keys(data).map(function (element) {
+        return (
+          <div className=" main__box" key={element}>
+            <Title level={2}>
+              <Text code>{element}</Text>
+            </Title>
 
-
-    fetch('https://coralboat.online/v1/data')
-  .then(response => response.json())
-  .then(commits => console.log(commits))
-    return (
-        <div className="main">
-            { Object.keys(list).map(function (element) {
+            <div className="main__cards">
+              {Object.keys(data[element]).map(function (elem, i) {
                 return (
-                    <div className=" main__box" key={element}>
-                        <Title level={2}><Text code>{element}</Text></Title>
-                        <div className="main__cards">
-                            {list[element].map(function (elem, i) {                              
-                                return (<>
-                                     {i<1000 ?
-                                    <Card className="main__card"
-                                    key={elem}
-                                        style={{ width: 200 }}
-                                        hoverable
-                                        cover={<img className="card__image" alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                                    >
-                                       
-                                        <Meta key={elem} className="card__title" title={list[element][i][0].title} description="www.instagram.com" />
-                                 </Card>:<>{console.log('ok')}</> }</>
-                                         )
-                                    }
-                                 )
+                  <>                           
+                        {i <50? (<a target="_blank" href={data[element][elem].url}>
+                          <Card
+                            className="main__card"
+                            key={elem}
+                            style={{ width: 200 }}
+                            hoverable
+                            cover={
+                              <img 
+                                className="card__image"
+                                alt="example"
+                                src={
+                                    data[element][elem].img_url
+                                }
+                              />
                             }
-                        
-                        </div>
-                            <Button className="main__butoon" type="primary" danger>Больше &#8230;</Button>
-                    </div>
+                          >  
+                            <Meta
+                              key={elem}
+                              className="card__title"
+                              title={elem}
+                            
+                            />
+                          </Card></a>
+                        ):<></>} 
+                            </>
                 )
-            })}
-        </div>
-    )
+              })}
+            </div>           
+            <Button className="main__butoon" type="primary" danger>
+              Больше &#8230;
+            </Button>
+          </div>
+        );
+      })}
+    </div>
+  );
 }
 
 export default Main;

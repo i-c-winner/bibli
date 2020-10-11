@@ -3,6 +3,8 @@
   width: 200px;
   height: 320px;
   overflow: hidden;
- margin: 5px;
-
+ margin: 7px;
+ padding:2px;
+ border: 1px double black;
+background-color: rgba(0, 0, 0, 0)
 }
