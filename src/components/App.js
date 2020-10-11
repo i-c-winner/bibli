@@ -1,30 +1,19 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect} from "react";
 import Header from './header/Header';
-import Card from './main/Card';
+import Main from './main/Main';
+import apiRequest from '../utils/apiRequest';
 
-import './App.css';
-import * as cards from '../constans/constans';
-import Corusel from "./corusel/Corusel";
+import './App.css'; 
+
+
 
 class App extends Component {
+   
     render() {
-        return (
-            <div className="home">
-                <div className="container">
-                    <Header />
-                    
-                     <Corusel />
-                    {
-                        Object.keys(cards.list).map(function (element) {
-                            return (
-
-                                <Card type={element} key={element} />
-                            )
-                        })
-                    }
-                </div>
-               
-            </div>
+        return (<div className='home'>
+            <Header />
+            <Main />
+        </div>
         );
     }
 }
