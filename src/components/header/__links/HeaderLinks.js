@@ -1,5 +1,8 @@
 import { Menu, Dropdown, Button } from 'antd';
-import React from 'react'
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Main from '../../main/Main';
+import Frontend from '../../frontend/Frontend';
 
 const otherLinks= (
   <Menu>
@@ -42,7 +45,7 @@ const backendLinks= (
 const frontendLinks = (
   <Menu>
     <Menu.Item>
-   <p>HTML</p>
+   <Link to="/HTML">HTML</Link>
        
     </Menu.Item>
     <Menu.Item>
@@ -59,6 +62,7 @@ const frontendLinks = (
   function HeaderLinks () {
     return (
   <div className="header__links">
+ <Router>
     <Dropdown overlay={frontendLinks} placement="bottomLeft">
       <Button className="header__link">Фронтенд</Button>
     </Dropdown>
@@ -71,7 +75,15 @@ const frontendLinks = (
  
     <Dropdown overlay={otherLinks} placement="topLeft">
       <Button className="header__link">Разное</Button>
-    </Dropdown>    
+    </Dropdown>   
+
+      <Switch>
+  
+  {/* Оба /roster и /roster/:number начинаются с /roster */}
+  <Route path='/HTML' component={Frontend} />
+  
+</Switch>
+</Router>
   </div>
     )
   }
